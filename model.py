@@ -1,3 +1,4 @@
+from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 from typing import Optional, NewType
@@ -22,6 +23,17 @@ class Batch:
         self.eta = eta
         self._purchased_quantity = qty
         self._allocations = set() # type: Set[OrderLine]
+
+
+    def __eq__(self, other: Batch):
+        if not isinstance(other, Batch):
+            return False
+
+        return other.reference == self.reference
+
+
+    def __hash__(self):
+        return hash(self.reference)
 
 
     def allocate(self, line: OrderLine):
