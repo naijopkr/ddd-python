@@ -7,6 +7,7 @@ Quantity = NewType('Quantity', int)
 Sku = NewType('Sku', str)
 Reference = NewType('Reference', str)
 
+
 @dataclass(frozen=True)
 class OrderLine:
     orderid: str
@@ -69,11 +70,18 @@ class Batch:
         return self.sku == line.sku and self.available_quantity >= line.qty
 
 
+class OutOfStock(Exception):
+    pass
+
+
 def allocate(line: OrderLine, batches: List[Batch]) -> str:
-    batch = next(
-        b for b in sorted(batches) if b.can_allocate(line)
-    )
+    try:
+        batch = next(
+            b for b in sorted(batches) if b.can_allocate(line)
+        )
 
-    batch.allocate(line)
+        batch.allocate(line)
 
-    return batch.reference
+        return batch.reference
+    except StopIteration:
+        raise OutOfStock(f'Out of stock for sku {line.sku}')
