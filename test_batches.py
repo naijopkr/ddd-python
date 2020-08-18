@@ -11,9 +11,7 @@ def make_batch_and_line(sku, batch_qty, line_qty):
     )
 
 
-# tomorrow = today + timedelta(days=1)
-# later = tomorrow + timedelta(days=10)
-
+# TESTS
 def test_allocating_to_a_batch_reduces_the_available_quantity():
     batch, order_line = make_batch_and_line('SMALL-TABLE', 20, 2)
     batch.allocate(order_line)
@@ -55,9 +53,3 @@ def test_allocation_is_idempotent():
     batch.allocate(line)
 
     assert batch.available_quantity == 18
-
-# def test_prefers_warehouse_batches_to_shipments():
-#     pytest.fail('todo')
-
-# def test_prefers_earlier_batches():
-#     pytest.fail('todo')

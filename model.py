@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
-from typing import Optional, NewType
+from typing import Optional, NewType, List
 
 Quantity = NewType('Quantity', int)
 Sku = NewType('Sku', str)
@@ -36,6 +36,15 @@ class Batch:
         return hash(self.reference)
 
 
+    def __gt__(self, other):
+        if self.eta is None:
+            return False
+        if other.eta is None:
+            return True
+
+        return self.eta > other.eta
+
+
     def allocate(self, line: OrderLine):
         if self.can_allocate(line):
             self._allocations.add(line)
@@ -58,3 +67,13 @@ class Batch:
 
     def can_allocate(self, line: OrderLine) -> bool:
         return self.sku == line.sku and self.available_quantity >= line.qty
+
+
+def allocate(line: OrderLine, batches: List[Batch]) -> str:
+    batch = next(
+        b for b in sorted(batches) if b.can_allocate(line)
+    )
+
+    batch.allocate(line)
+
+    return batch.reference
