@@ -1,5 +1,5 @@
-import model
-import repository
+from allocation.domain import model
+from allocation.adapters import repository
 
 def insert_order_line(session):
     orderid = 'order1'

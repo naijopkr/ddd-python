@@ -8,7 +8,7 @@ from allocation.adapters import orm, repository
 
 orm.start_mappers()
 get_session = sessionmaker(
-    bind=create_engine('postgres://postgres:abc123@localhost:5432/allocation')
+    bind=create_engine(config.get_postgres_uri())
 )
 
 app = Flask(__name__)

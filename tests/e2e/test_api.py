@@ -1,7 +1,24 @@
 import pytest
+import requests
+import uuid
+
+from allocation import config
+
+def random_sufix():
+    return uuid.uuid4().hex[:6]
+
+def random_sku(name=''):
+    return f'sku-{name}-{random_sufix()}'
+
+def random_batchref(name=''):
+    return f'batch-{name}-{random_sufix()}'
+
+def random_orderid(name=''):
+    return f'order-{name}-{random_sufix()}'
+
 
 @pytest.mark.usefixtures('restart_api')
-def test_api_returns_allocation(add_stock)
+def test_api_returns_allocation(add_stock):
     sku, othersku = random_sku(), random_sku('other')
     earlybatch = random_batchref(1)
     laterbatch = random_batchref(2)

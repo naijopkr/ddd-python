@@ -1,7 +1,7 @@
 import pytest
 from datetime import date, timedelta
 
-from model import Batch, OrderLine, allocate, OutOfStock
+from allocation.domain.model import Batch, OrderLine, allocate, OutOfStock
 
 sku_sample = 'CHAIR-1'
 
