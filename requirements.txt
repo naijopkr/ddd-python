@@ -1,16 +1,22 @@
+-e git+git@github.com:naijopkr/code.git@833e05d3defeb7246ba7554a857860e8e23129d6#egg=allocation&subdirectory=src
 astroid==2.4.2
 attrs==19.3.0
 backcall==0.2.0
+click==7.1.2
 decorator==4.4.2
+Flask==1.1.2
 iniconfig==1.0.1
 ipykernel==5.3.4
 ipython==7.17.0
 ipython-genutils==0.2.0
 isort==4.3.21
+itsdangerous==1.1.0
 jedi==0.17.2
+Jinja2==2.11.2
 jupyter-client==6.1.6
 jupyter-core==4.6.3
 lazy-object-proxy==1.4.3
+MarkupSafe==1.1.1
 mccabe==0.6.1
 more-itertools==8.4.0
 packaging==20.4
@@ -19,6 +25,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 pluggy==0.13.1
 prompt-toolkit==3.0.6
+psycopg2-binary==2.8.5
 ptyprocess==0.6.0
 py==1.9.0
 Pygments==2.6.1
@@ -33,4 +40,5 @@ toml==0.10.1
 tornado==6.0.4
 traitlets==4.3.3
 wcwidth==0.2.5
+Werkzeug==1.0.1
 wrapt==1.12.1
