@@ -1,4 +1,4 @@
--e git+git@github.com:naijopkr/code.git@a0a3b98a3391235e51864f5ae5f165c5632aace3#egg=allocation&subdirectory=src
+-e git+git@github.com:naijopkr/code.git@900318afc74d1531bdf290dc95d1a4126b5a6cf0#egg=allocation&subdirectory=src
 astroid==2.4.2
 attrs==19.3.0
 backcall==0.2.0
@@ -22,6 +22,8 @@ lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
 more-itertools==8.4.0
+mypy==0.782
+mypy-extensions==0.4.3
 packaging==20.4
 parso==0.7.1
 pexpect==4.8.0
@@ -43,6 +45,8 @@ SQLAlchemy==1.3.19
 toml==0.10.1
 tornado==6.0.4
 traitlets==4.3.3
+typed-ast==1.4.1
+typing-extensions==3.7.4.2
 urllib3==1.25.10
 wcwidth==0.2.5
 Werkzeug==1.0.1
