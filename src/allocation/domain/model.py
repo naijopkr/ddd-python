@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
-from typing import Optional, NewType, List
+from typing import Optional, NewType, List, Set
 
 Quantity = NewType('Quantity', int)
 Sku = NewType('Sku', str)
@@ -26,7 +26,7 @@ class Batch:
         self._allocations = set() # type: Set[OrderLine]
 
 
-    def __eq__(self, other: Batch):
+    def __eq__(self, other):
         if not isinstance(other, Batch):
             return False
 
